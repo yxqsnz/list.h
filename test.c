@@ -11,6 +11,7 @@ int main()
     list_resize(my_list, 3);
     puts(display_list(my_list));
     for (size_t i = 0; i < 10000; ++i)
-        list_push(my_list, (char *)i);
+        list_push(my_list, "yxqsnz");
+    printf("%s\n", list_get(my_list, 100));
     list_free(my_list);
 }
