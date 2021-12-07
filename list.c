@@ -31,6 +31,28 @@ LIST_TYPE list_get(list_t* list, size_t element)
 	}
 	return NULL;	
 }
+int list_set(list_t* list, size_t at, LIST_TYPE element)
+{
+    if (list->size >= at)
+    {
+        list->elements[at] = element;
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+void list_resize(list_t* list, size_t to)
+{
+    list->size = to;
+    list->elements = reallocarray(list->elements, sizeof(LIST_TYPE), to);
+}
+void list_free(list_t* list)
+{
+    free(list->elements);
+    free(list);
+}
 char* display_list(list_t* list)
 {
 	if(list->used == 0) 
