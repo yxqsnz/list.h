@@ -8,6 +8,6 @@ int main() {
     list_push(my_list, "Nothing");
     list_set(my_list, 2, "World");
     list_resize(my_list, 3);
-	puts(display_list(my_list));;
+	puts(display_list(my_list));
     list_free(my_list);
 }

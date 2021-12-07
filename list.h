@@ -3,6 +3,15 @@
 #ifndef LIST_TYPE
 #define LIST_TYPE char *
 #endif
+#ifndef list_foreach
+#define list_foreach(item, list) \
+    for(int keep = 1, \
+            count = 0,\
+            size = (list)->used ; \
+        keep && count != size; \
+        keep = !keep, count++) \
+      for(item = list_get((list), count); keep; keep = !keep)
+#endif
 struct list_t
 {
     LIST_TYPE *elements;
